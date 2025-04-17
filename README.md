@@ -8,3 +8,6 @@
 
 
 ## アーキテクチャ
+
+localhost:5173 : Vite の開発サーバー  
+localhost:4010 : Prism Mock Serverのエンドポイント
