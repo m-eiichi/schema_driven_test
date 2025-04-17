@@ -15,3 +15,9 @@ localhost:4010 : Prism Mock Serverのエンドポイント
 
 TODO  
 vite-project（React開発環境）からも openapi.yml にアクセスできるように、ボリュームマウントしたい。
+
+add openapi-generator
+openapi-generator generate \
+  -i /tmp/openapi/openapi.yml \
+  -g typescript-fetch \
+  -o ./src/generated-api
