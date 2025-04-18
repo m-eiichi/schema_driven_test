@@ -8,8 +8,7 @@ services:
       - "5173:5173"
       - "6006:6006"
     volumes:
-      - ../react-app:/usr/src/app:cached
-      - ../openapi:/tmp/openapi:ro
+      - ../react-app/:/usr/src/app/:cached
     depends_on:
       - prism-mock
     stdin_open: true
@@ -21,5 +20,5 @@ services:
     ports:
       - "4010:4010"
     volumes:
-      - ../openapi:/tmp/openapi
+      - ../react-app/openapi:/tmp/openapi
     command: mock --host 0.0.0.0 /tmp/openapi/openapi.yml
