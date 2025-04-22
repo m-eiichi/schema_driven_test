@@ -19,6 +19,6 @@ services:
     platform: linux/amd64
     ports:
       - "4010:4010"
-    volumes:
-      - ../react-app/my-project/openapi:/tmp/openapi
-    command: mock --host 0.0.0.0 /tmp/openapi/openapi.yml
+    # volumes:
+    #   - ../react-app/my-project/openapi:/tmp/openapi
+    # command: mock --host 0.0.0.0 /tmp/openapi/openapi.yml
