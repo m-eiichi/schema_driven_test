@@ -20,5 +20,5 @@ services:
     ports:
       - "4010:4010"
     volumes:
-      - ../react-app/openapi:/tmp/openapi
+      - ../react-app/my-project/openapi:/tmp/openapi
     command: mock --host 0.0.0.0 /tmp/openapi/openapi.yml
