@@ -3,9 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import {useUser} from "./utils/fecher"
+
 function App() {
   const [count, setCount] = useState(0)
 
+  const aaa = useUser(1) 
+  console.log(aaa.data)
   return (
     <>
       <div>
