@@ -6,7 +6,11 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
-  const { user } = useUser(1);
+  const { user, isLoading } = useUser(1);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <div>
