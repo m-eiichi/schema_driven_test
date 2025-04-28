@@ -1,23 +1,47 @@
 openapi: 3.0.3
 info:
-  title: User API
+  title: Sample API
+  description: schema driven test.
+  # termsOfService: 利用規約のURL
+  # contact:
+  #   name: API support
+  #   url: サポート用URL
+  #   email: サポート用email
+  # license:
+  #   name: Apache 2.0
+  #   url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
+
 servers:
   - url: http://localhost:4010 # モック用 Prism サーバなど
+    description: モック用 Prism サーバなど
+  # - url: https://stg.sample-server.com/v1
+  #   description: Staging server
+  # - url: https://api.sample-server.com/v1
+  #   description: Production server
 
 paths:
   /users:
     get:
       summary: ユーザー一覧取得
       responses:
-        '200':
+        "200":
           description: ユーザー一覧
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
+              examples:
+                example1:
+                  value:
+                    - id: 1
+                      name: Taro Yamada
+                      email: taro@example.com
+                    - id: 2
+                      name: Hanako Suzuki
+                      email: hanako@example.com
 
     post:
       summary: ユーザー作成
@@ -26,14 +50,36 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewUser'
+              $ref: "#/components/schemas/NewUser"
       responses:
-        '201':
+        "201":
           description: 作成成功
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
+
+  # /posts:
+  #   get:
+  #     summary: ユーザー一覧取得
+  #     responses:
+  #       "200":
+  #         description: ユーザー一覧
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: array
+  #               items:
+  #                 $ref: "#/components/schemas/User"
+  #             examples:
+  #               example1:
+  #                 value:
+  #                   - id: 1
+  #                     name: Taro Yamada
+  #                     email: taro@example.com
+  #                   - id: 2
+  #                     name: Hanako Suzuki
+  #                     email: hanako@example.com
 
   /users/{id}:
     get:
@@ -45,13 +91,13 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           description: ユーザー詳細
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
-        '404':
+                $ref: "#/components/schemas/User"
+        "404":
           description: ユーザーが見つかりません
 
 components:

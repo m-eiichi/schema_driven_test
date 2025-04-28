@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useUser } from "@/hooks/useUser";
+import { useUsers } from "@/hooks/useUsers";
 import reactLogo from "@/assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
-  const { user, isLoading } = useUser(1);
+  const { users, isLoading } = useUsers();
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <div>
-        <p>{user?.name}</p>
+        {users && users.map((i) => <div key={i.id}>{i.name}</div>)}
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
