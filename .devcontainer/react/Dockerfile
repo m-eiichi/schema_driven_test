@@ -5,7 +5,6 @@ LABEL description="node20 with Yarn 4"
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
         git \
-        openssh-client \
         openjdk-17-jre-headless \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
@@ -15,5 +14,5 @@ RUN corepack enable \
 && corepack prepare yarn@stable --activate 
 
 # OpenAPI Generator CLI のインストール
-# WORKDIR /usr/src/app/vite-project
+# WORKDIR /usr/src/app
 # RUN yarn install

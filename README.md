@@ -10,12 +10,10 @@
 ## アーキテクチャ
 
 localhost:5173 : Vite の開発サーバー  
+localhost:5174 : Swagger UI  
 localhost:4010 : Prism Mock Server のエンドポイント
 
 ```bash
-add openapi-generator
-openapi-generator generate \
- -i /tmp/openapi/openapi.yml \
- -g typescript-fetch \
- -o ./src/generated-api
+npx @openapitools/openapi-generator-cli generate -i openapi/openapi.yml -g typescript-fetch -o src/generated-api
+
 ```

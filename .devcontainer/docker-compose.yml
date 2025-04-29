@@ -2,13 +2,27 @@ services:
   react:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: react/Dockerfile
     working_dir: /usr/src/app
     ports:
       - "5173:5173"
       - "6006:6006"
     volumes:
       - ../react-app/:/usr/src/app/:cached
+    depends_on:
+      - prism-mock
+    stdin_open: true
+    tty: true
+
+  swagger:
+    build:
+      context: .
+      dockerfile: swagger/Dockerfile
+    working_dir: /usr/share/nginx/html
+    ports:
+      - "5174:80" # 👈ホスト側5174番でアクセス
+    volumes:
+      - ../swagger-ui/:/usr/share/nginx/html:cached
     depends_on:
       - prism-mock
     stdin_open: true
